@@ -30,7 +30,7 @@ public class bigenchant extends MagePluginEvent {
                 if (level > ench.getMaxLevel()) {
                     level = ench.getMaxLevel();
                 }
-                minLevel += (level * 7);
+                minLevel = minLevel +  (level * 7);
                 int playerLevel = BlacksmithMagic.manager.getPlayerConfig(event.getPlayer()).getLevel();
                 if (playerLevel >= minLevel) {
 
