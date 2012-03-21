@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package blacksmithmagic.magics.enchant.destroy;
+package blacksmithmagic.magics.destroy;
 
 import bluenova.fairytailcraft.plugin.MagePluginEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -16,9 +18,9 @@ import org.bukkit.inventory.ItemStack;
 public class destroymagic extends MagePluginEvent{
 
     @Override
-    public boolean callEntityDamageByEntityEvent(EntityDamageByEntityEvent event, Integer level) {
-        if(event.getEntity() instanceof Player) {
-            Player pl = (Player) event.getEntity();
+    public boolean callPlayerInteractEntityEvent(PlayerInteractEntityEvent event, Integer integer) {
+        if(event.getRightClicked() instanceof Player) {
+            Player pl = (Player) event.getRightClicked();
             ItemStack itemInHand = pl.getItemInHand();
             if(itemInHand != null) {
                 if(itemInHand.getType().getMaxDurability() < 1)
@@ -29,5 +31,5 @@ public class destroymagic extends MagePluginEvent{
             }
         }
         return false;
-    }    
+    } 
 }

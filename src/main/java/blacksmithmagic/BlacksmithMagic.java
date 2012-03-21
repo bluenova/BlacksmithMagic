@@ -6,7 +6,7 @@ package blacksmithmagic;
  */
 import blacksmithmagic.commands.blacksmithCommands;
 import blacksmithmagic.magics.enchant.bigenchant;
-import blacksmithmagic.magics.enchant.destroy.destroymagic;
+import blacksmithmagic.magics.destroy.destroymagic;
 import blacksmithmagic.magics.enchant.mediumEnchant;
 import blacksmithmagic.magics.enchant.simpleEnchant;
 import blacksmithmagic.magics.repair.repairdiamond;
@@ -55,7 +55,7 @@ public class BlacksmithMagic implements MagePlugin {
         BlacksmithMagic.manager.registerMagic("repairiron", magicName, 10, 30, new repairiron(), MageEventType.INTERACT, false);
         BlacksmithMagic.manager.registerMagic("mediumenchant", magicName, 14, 39, new mediumEnchant(), MageEventType.INTERACT, false);
         BlacksmithMagic.manager.registerMagic("repairgold", magicName, 15, 40, new repairgold(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("destroyweapon", magicName, 17, 40, new destroymagic(), MageEventType.GETDMGBYENTITY, false);
+        BlacksmithMagic.manager.registerMagic("destroyweapon", magicName, 17, 40, new destroymagic(), MageEventType.INTERACT, false);
         BlacksmithMagic.manager.registerMagic("repairdiamond", magicName, 20, 50, new repairdiamond(), MageEventType.INTERACT, false);
         BlacksmithMagic.manager.registerMagic("bigenchant", magicName, 22, 54, new bigenchant(), MageEventType.INTERACT, false);
     }
