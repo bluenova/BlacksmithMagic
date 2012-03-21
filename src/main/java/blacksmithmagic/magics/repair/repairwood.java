@@ -20,32 +20,34 @@ public class repairwood extends MagePluginEvent {
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
-            Material itype = item.getType();
-            if (itype == Material.WOOD_AXE) {
-                item.setDurability(Material.WOOD_AXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.WOOD_HOE) {
-                item.setDurability(Material.WOOD_HOE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.WOOD_PICKAXE) {
-                item.setDurability(Material.WOOD_PICKAXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.WOOD_SPADE) {
-                item.setDurability(Material.WOOD_SPADE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.WOOD_SWORD) {
-                item.setDurability(Material.WOOD_SWORD.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
+            if (item != null) {
+                Material itype = item.getType();
+                if (itype == Material.WOOD_AXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.WOOD_HOE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.WOOD_PICKAXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.WOOD_SPADE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.WOOD_SWORD) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                }
             }
         }
         return false;

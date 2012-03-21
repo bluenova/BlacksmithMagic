@@ -20,32 +20,34 @@ public class repairstone extends MagePluginEvent {
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
-            Material itype = item.getType();
-            if (itype == Material.STONE_AXE) {
-                item.setDurability(Material.STONE_AXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.STONE_HOE) {
-                item.setDurability(Material.STONE_HOE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.STONE_PICKAXE) {
-                item.setDurability(Material.STONE_PICKAXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.STONE_SPADE) {
-                item.setDurability(Material.STONE_SPADE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.STONE_SWORD) {
-                item.setDurability(Material.STONE_SWORD.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
+            if (item != null) {
+                Material itype = item.getType();
+                if (itype == Material.STONE_AXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.STONE_HOE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.STONE_PICKAXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.STONE_SPADE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.STONE_SWORD) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                }
             }
         }
         return false;

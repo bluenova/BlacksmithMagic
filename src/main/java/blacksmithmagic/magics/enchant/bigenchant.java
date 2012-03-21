@@ -23,32 +23,35 @@ public class bigenchant extends MagePluginEvent {
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
-            Material itype = item.getType();
-            int minLevel = 22;
-            if (BlacksmithMagic.activeBEnchants.containsKey(event.getPlayer())) {
-                Enchantment ench = BlacksmithMagic.activeBEnchants.get(event.getPlayer());
-                if (level > ench.getMaxLevel()) {
-                    level = ench.getMaxLevel();
-                }
-                minLevel = minLevel +  (level * 7);
-                int playerLevel = BlacksmithMagic.manager.getPlayerConfig(event.getPlayer()).getLevel();
-                if (playerLevel >= minLevel) {
-
-                    if (ench.canEnchantItem(item)) {
-                        item.addEnchantment(ench, level);
-                        event.getPlayer().setItemInHand(item);
-                        event.getPlayer().sendMessage(ChatColor.GREEN + "Item in Hand Enchanted!");
-                        event.getPlayer().sendMessage("Mana deceesed!");
-                    } else {
-                        event.getPlayer().sendMessage(ChatColor.RED + "Can't Enchant Item in Hand with Active Enchantment!");
+            if (item != null) {
+                int minLevel = 22;
+                if (BlacksmithMagic.activeBEnchants.containsKey(event.getPlayer())) {
+                    Enchantment ench = BlacksmithMagic.activeBEnchants.get(event.getPlayer());
+                    if (level > ench.getMaxLevel()) {
+                        level = ench.getMaxLevel();
                     }
+                    minLevel = minLevel + (level * 7);
+                    int playerLevel = BlacksmithMagic.manager.getPlayerConfig(event.getPlayer()).getLevel();
+                    if (playerLevel >= minLevel) {
 
+                        if (ench.canEnchantItem(item)) {
+                            item.addEnchantment(ench, level);
+                            event.getPlayer().setItemInHand(item);
+                            event.getPlayer().sendMessage(ChatColor.GREEN + "Item in Hand Enchanted!");
+                            event.getPlayer().sendMessage("Mana deceesed!");
+                        } else {
+                            event.getPlayer().sendMessage(ChatColor.RED + "Can't Enchant Item in Hand with Active Enchantment!");
+                        }
+
+                    } else {
+                        event.getPlayer().sendMessage(ChatColor.RED + "Minimumlevel for Spelllevel " + level + " is " + minLevel + "!");
+                    }
                 } else {
-                    event.getPlayer().sendMessage(ChatColor.RED + "Minimumlevel for Spelllevel " + level + " is " + minLevel + "!");
+                    event.getPlayer().sendMessage(ChatColor.RED + "You have to set an Enchantment first!");
                 }
-            } else {
-                event.getPlayer().sendMessage(ChatColor.RED + "You have to set an Enchantment first!");
             }
+        } else {
+            event.getPlayer().sendMessage(ChatColor.RED + "Can't Enchant Item in Hand with Active Enchantment!");
         }
         return false;
     }

@@ -20,32 +20,34 @@ public class repairdiamond extends MagePluginEvent {
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
-            Material itype = item.getType();
-            if (itype == Material.DIAMOND_AXE) {
-                item.setDurability(Material.DIAMOND_AXE.getMaxDurability());
-                event.getPlayer().setItemInHand(item);
-                event.getPlayer().sendMessage("Mana decreesed!");
-                return true;
-            } else if (itype == Material.DIAMOND_HOE) {
-                item.setDurability(Material.DIAMOND_HOE.getMaxDurability());
-                event.getPlayer().setItemInHand(item);
-                event.getPlayer().sendMessage("Mana decreesed!");
-                return true;
-            } else if (itype == Material.DIAMOND_PICKAXE) {
-                item.setDurability(Material.DIAMOND_PICKAXE.getMaxDurability());
-                event.getPlayer().setItemInHand(item);
-                event.getPlayer().sendMessage("Mana decreesed!");
-                return true;
-            } else if (itype == Material.DIAMOND_SPADE) {
-                item.setDurability(Material.DIAMOND_SPADE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.DIAMOND_SWORD) {
-                item.setDurability(Material.DIAMOND_SWORD.getMaxDurability());
-                event.getPlayer().setItemInHand(item);
-                event.getPlayer().sendMessage("Mana decreesed!");
-                return true;
+            if (item != null) {
+                Material itype = item.getType();
+                if (itype == Material.DIAMOND_AXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().setItemInHand(item);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    return true;
+                } else if (itype == Material.DIAMOND_HOE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().setItemInHand(item);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    return true;
+                } else if (itype == Material.DIAMOND_PICKAXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().setItemInHand(item);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    return true;
+                } else if (itype == Material.DIAMOND_SPADE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.DIAMOND_SWORD) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().setItemInHand(item);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    return true;
+                }
             }
         }
         return false;

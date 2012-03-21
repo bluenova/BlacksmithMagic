@@ -20,32 +20,34 @@ public class repairiron extends MagePluginEvent {
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
-            Material itype = item.getType();
-            if (itype == Material.IRON_AXE) {
-                item.setDurability(Material.IRON_AXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.IRON_HOE) {
-                item.setDurability(Material.IRON_HOE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.IRON_PICKAXE) {
-                item.setDurability(Material.IRON_PICKAXE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.IRON_SPADE) {
-                item.setDurability(Material.IRON_SPADE.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
-            } else if (itype == Material.IRON_SWORD) {
-                item.setDurability(Material.IRON_SWORD.getMaxDurability());
-                event.getPlayer().sendMessage("Mana decreesed!");
-                event.getPlayer().setItemInHand(item);
-                return true;
+            if (item != null) {
+                Material itype = item.getType();
+                if (itype == Material.IRON_AXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.IRON_HOE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.IRON_PICKAXE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.IRON_SPADE) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                } else if (itype == Material.IRON_SWORD) {
+                    item.setDurability((short) 0);
+                    event.getPlayer().sendMessage("Mana decreesed!");
+                    event.getPlayer().setItemInHand(item);
+                    return true;
+                }
             }
         }
         return false;
