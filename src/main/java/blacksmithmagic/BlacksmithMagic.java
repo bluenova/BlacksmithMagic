@@ -47,17 +47,17 @@ public class BlacksmithMagic implements MagePlugin {
 
         System.out.println("BlacksmithMagic Successfully Load!");
     }
-    
+
     private void setupMagics() {
-        BlacksmithMagic.manager.registerMagic("repairwood", magicName, 1, 10, new repairwood(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("simpleenchant", magicName, 4, 17, new simpleEnchant(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("repairstone", magicName, 5, 20, new repairstone(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("repairiron", magicName, 10, 30, new repairiron(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("mediumenchant", magicName, 14, 39, new mediumEnchant(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("repairgold", magicName, 15, 40, new repairgold(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("destroyweapon", magicName, 17, 40, new destroymagic(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("repairdiamond", magicName, 20, 50, new repairdiamond(), MageEventType.INTERACT, false);
-        BlacksmithMagic.manager.registerMagic("bigenchant", magicName, 22, 54, new bigenchant(), MageEventType.INTERACT, false);
+        BlacksmithMagic.manager.registerMagic("repairwood", magicName, 1, 10, new repairwood(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("simpleenchant", magicName, 4, 17, new simpleEnchant(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("repairstone", magicName, 5, 20, new repairstone(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("repairiron", magicName, 10, 30, new repairiron(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("mediumenchant", magicName, 14, 39, new mediumEnchant(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("repairgold", magicName, 15, 40, new repairgold(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("destroyweapon", magicName, 17, 40, new destroymagic(), MageEventType.INTERACT, false, new Long(10000));
+        BlacksmithMagic.manager.registerMagic("repairdiamond", magicName, 20, 50, new repairdiamond(), MageEventType.INTERACT, false, new Long(100));
+        BlacksmithMagic.manager.registerMagic("bigenchant", magicName, 22, 54, new bigenchant(), MageEventType.INTERACT, false, new Long(100));
     }
 
     private void setupEnchants() {
